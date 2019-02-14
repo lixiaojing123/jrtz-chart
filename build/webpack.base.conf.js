@@ -13,7 +13,9 @@ function resolve (dir) {
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
-    app: './src/main.js'
+    app: process.env.NODE_ENV === 'production'
+      ? './src/components/index.js' // 生产模式下导入文件
+      : './src/main.js' // 开发模式下导入文件
   },
   output: {
     path: config.build.assetsRoot,
