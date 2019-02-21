@@ -3,7 +3,7 @@
     <chart id="kline_charts" :type="type6"  :xdata="xdata6"  :ydata="ydata6" :ytype="ytype6" yunit="元"
            :isXdataJustify="isXdataJustify6"></chart>
 
-    <chart id="pannel_charts" :type="type5" :ydata="ydata5"  :text="text2"></chart>
+    <chart id="pannel_charts" :type="type5" :ydata="ydata5"  :text="text2" :extendOption="extendOption5"></chart>
 
     <chart id="spider_charts" :type="type3"  :xdata="xdata3"  :ydata="ydata3" :ytype="ytype3" :isDataDot="isDataDot3"></chart>
 
@@ -74,6 +74,12 @@ export default {
       //pannel
       type5:"panel",
       ydata5:[20],
+      extendOption5:{
+//        chart: {
+//          width: "160",
+//          height: "100",
+//        },
+      },
       //pannel
 
       //kline

@@ -1,5 +1,5 @@
 <template>
-    <div>
+
       <!--<remoteJs src="/static/theme.js"></remoteJs>-->
       <div :id="id"
            :type = "type"
@@ -14,16 +14,14 @@
            :isDataDot = "isDataDot"
            :text = "text"
            :theme = "theme"
+           class="chart"
       ></div>
-  </div>
 </template>
 <script>
-//  import remoteJs from '../assets/importJs'
   import HighCharts from 'highcharts/highstock'
   import highchartsMore from 'highcharts/highcharts-more';
   import * as chartOption from '../assets/chartOption'
   import Utils from '../assets/index.js'
-//  import base from '../assets/base'
 
   highchartsMore(HighCharts);
   export default {
@@ -76,6 +74,8 @@
         default : null
       }
     },
+    beforeCreate(){
+    },
     created(){
 
     },
@@ -88,11 +88,10 @@
 //      remoteJs
     },
     mounted() {
-
-      console.log("sdfdsfdf");
       this.init()
     },
     methods: {
+
       getChart(){
         return this.chart;
       },
@@ -154,6 +153,9 @@
           }
           option = Utils.assign(option,plotOptions);
         }
+        if(this.extendOption){
+          option = Utils.assign(option,this.extendOption);
+        }
         this.chart = HighCharts.chart(this.id,option);
       },
     },
@@ -164,6 +166,9 @@
 
 <style>
   .highcharts-legend-item .highcharts-point{
-    display:none;
+    display:none !important;
+  }
+  .chart{
+
   }
 </style>
