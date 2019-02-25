@@ -5,7 +5,6 @@ import vars from "../assets/theme.js"
 
 export const tooltipHTML = function (target) {
   let point = target.points || target.point;
-  console.log(point);
   let unit = point[0].point.series.chart.options.yAxis[0].title.text;
   let row = '';
   for (let i = 0; i < point.length; i++) {
@@ -28,9 +27,6 @@ export const tooltipHTML = function (target) {
 
 export const tooltipForKline = function (target) {
   let point = target.points || target.point;
-  console.log("8888");
-  console.log(point[0].point.high);
-  console.log(point[0].series.yData);
   let unit = point[0].point.series.chart.options.yAxis[0].title.text;
   let row = '';
     row += `

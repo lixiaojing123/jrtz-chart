@@ -1,7 +1,7 @@
 <template>
   <div>
     <chart id="kline_charts" :type="type6"  :xdata="xdata6"  :ydata="ydata6" :ytype="ytype6" yunit="元"
-           :isXdataJustify="isXdataJustify6"></chart>
+           :isXdataJustify="isXdataJustify6" :extendOption = "extendOption6"></chart>
 
     <chart id="pannel_charts" :type="type5" :ydata="ydata5"  :text="text2" :extendOption="extendOption5"></chart>
 
@@ -75,10 +75,10 @@ export default {
       type5:"panel",
       ydata5:[20],
       extendOption5:{
-//        chart: {
-//          width: "160",
-//          height: "100",
-//        },
+        chart: {
+          width: "160",
+          height: "100",
+        },
       },
       //pannel
 
@@ -97,6 +97,11 @@ export default {
         ["08-15", 68.1, 68.25, 64.75, 64.98],
       ]],
       isXdataJustify6: true,
+      extendOption6:{
+          tooltip:{
+              enabled:false
+          }
+      }
       //kline
     }
   },

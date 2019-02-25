@@ -27,8 +27,6 @@ export const getSeriesOption = function(dataArr,typeArr,nameArr,xdata){
     series.push(item);
   }
 
-  console.log(series);
-
   return {
     series : series,
     // xAxis:{

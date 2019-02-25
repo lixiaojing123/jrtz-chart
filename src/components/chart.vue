@@ -157,6 +157,7 @@
           option = Utils.assign(option,this.extendOption);
         }
         this.chart = HighCharts.chart(this.id,option);
+        console.log(option);
       },
     },
 
