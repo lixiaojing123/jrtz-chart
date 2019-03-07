@@ -73,10 +73,10 @@ export default {
 
       //pannel
       type5:"panel",
-      ydata5:[20],
+      ydata5:[5],
       extendOption5:{
         chart: {
-          width: "160",
+          width: "150",
           height: "100",
         },
       },

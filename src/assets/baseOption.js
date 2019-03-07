@@ -14,7 +14,6 @@ export const baseOption = {
     enabled: false
   },
   colors: vars.colors,
-
   plotOptions: {
     column:{
       pointWidth:20,

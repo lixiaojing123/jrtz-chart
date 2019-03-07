@@ -1,0 +1,99 @@
+Index: src/components/chart.vue
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/components/chart.vue	(date 1550712581000)
++++ src/components/chart.vue	(revision )
+@@ -157,6 +157,7 @@
+           option = Utils.assign(option,this.extendOption);
+         }
+         this.chart = HighCharts.chart(this.id,option);
++        console.log(option);
+       },
+     },
+ 
+Index: src/components/index.vue
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/components/index.vue	(date 1550712581000)
++++ src/components/index.vue	(revision )
+@@ -1,7 +1,7 @@
+ <template>
+   <div>
+     <chart id="kline_charts" :type="type6"  :xdata="xdata6"  :ydata="ydata6" :ytype="ytype6" yunit="元"
+-           :isXdataJustify="isXdataJustify6"></chart>
++           :isXdataJustify="isXdataJustify6" :extendOption = "extendOption6"></chart>
+ 
+     <chart id="pannel_charts" :type="type5" :ydata="ydata5"  :text="text2" :extendOption="extendOption5"></chart>
+ 
+@@ -75,10 +75,10 @@
+       type5:"panel",
+       ydata5:[20],
+       extendOption5:{
+-//        chart: {
+-//          width: "160",
+-//          height: "100",
+-//        },
++        chart: {
++          width: "160",
++          height: "100",
++        },
+       },
+       //pannel
+ 
+@@ -97,6 +97,11 @@
+         ["08-15", 68.1, 68.25, 64.75, 64.98],
+       ]],
+       isXdataJustify6: true,
++      extendOption6:{
++          tooltip:{
++              enabled:false
++          }
++      }
+       //kline
+     }
+   },
+Index: src/assets/tooltips.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/assets/tooltips.js	(date 1550712581000)
++++ src/assets/tooltips.js	(revision )
+@@ -5,7 +5,6 @@
+ 
+ export const tooltipHTML = function (target) {
+   let point = target.points || target.point;
+-  console.log(point);
+   let unit = point[0].point.series.chart.options.yAxis[0].title.text;
+   let row = '';
+   for (let i = 0; i < point.length; i++) {
+@@ -28,9 +27,6 @@
+ 
+ export const tooltipForKline = function (target) {
+   let point = target.points || target.point;
+-  console.log("8888");
+-  console.log(point[0].point.high);
+-  console.log(point[0].series.yData);
+   let unit = point[0].point.series.chart.options.yAxis[0].title.text;
+   let row = '';
+     row += `
+Index: src/assets/utils.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/assets/utils.js	(date 1550712581000)
++++ src/assets/utils.js	(revision )
+@@ -27,8 +27,6 @@
+     series.push(item);
+   }
+ 
+-  console.log(series);
+-
+   return {
+     series : series,
+     // xAxis:{

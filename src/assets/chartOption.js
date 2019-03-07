@@ -82,10 +82,6 @@ export const instrumentPanelBaseOption = function(){
   let option1 = {
     chart: {
       marginTop: 0,
-      // width: "180",
-      // height: "130",
-      width: "160",
-      height: "110",
       plotBackgroundImage: "/static/meter.png",
     },
     pane: {
@@ -95,14 +91,15 @@ export const instrumentPanelBaseOption = function(){
       background: {
         backgroundColor: '#fff',
         borderWidth: 0,
-        innerRadius:20,
-        outerRadius: 65,
+        innerRadius:100,
+        outerRadius: 100,
+        shape:'arc',
       }
     },
     yAxis: {
       min: 0,
-      max: 100,
-      lineWidth: 0,
+      max: 4,
+      // lineWidth: 0,
       tickAmount: 50,
       labels: {
         enabled: false
@@ -118,16 +115,16 @@ export const instrumentPanelBaseOption = function(){
           radius: '100%',
           rearLength: '0%',
           baseWidth: 10,
-          baseLength: '10%'
+          baseLength: '1%'
         }
       }
     },
     title: {
       floating:true,
       x: 0,
-      y: 100,
+      y: 80,
       style:{
-        fontSize:24
+        fontSize:20
       }
     },
 

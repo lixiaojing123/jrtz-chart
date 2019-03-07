@@ -88,7 +88,6 @@ let Utils = {
       series: [{
         type: 'gauge',
         data: dataArr,
-
       }],
       title: {
         text: text
@@ -201,7 +200,6 @@ let Utils = {
     */
    merge: (a, b) => {
       if (!a || !b) {
-        console.log("return")
          return a || b;
       }
       Object.keys(b).forEach((bk) => {

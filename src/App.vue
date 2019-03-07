@@ -31,7 +31,6 @@ export default {
     },
   },
   beforeCreate(){
-      console.log("00")
     var script=document.createElement('script');
     script.type="text/javascript";
     script.src="./static/theme.js";
