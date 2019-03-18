@@ -1,11 +1,12 @@
-
+import vars from './theme'
+import {baseOption} from './baseOption'
 /**
  * 常用的工具方法封装
  */
 window.valueDecimals = 2;
 let Utils = {
 
-  getBasicSeriesOption(dataArr,typeArr,nameArr,xdata,yunit,isDataDot,isXdataJustify6){
+  getBasicSeriesOption(dataArr,typeArr,nameArr,xdata,yunit,isDataDot,isXdataJustify,doubleYIndexArr){
     if(! nameArr instanceof Array) {
       console.log("seriesName 格式不正确" );
       return;
@@ -16,6 +17,7 @@ let Utils = {
     }
 
     var series = [];
+    var yAxis = [];
     for(let i in dataArr){
       if(! dataArr instanceof Array) {
         console.log("dataArray 格式不正确" );
@@ -44,18 +46,85 @@ let Utils = {
       if(item.type == "column"){
         item.zIndex = '-1';
       }
+      if(doubleYIndexArr){
+        for(let k in doubleYIndexArr){
+          if(i == doubleYIndexArr[k]){
+            item.yAxis = 1;
+          }
+        }
+      }
+
+
+
       series.push(item);
+
     }
+
+
+    if(doubleYIndexArr && doubleYIndexArr.length > 0 ){
+      var baseYAxis1 = this.assign(baseOption["yAxis"],{});
+      baseYAxis1.title.text = yunit[0] ? yunit[0] : "";
+      yAxis.push( baseYAxis1);
+      var baseYAxis2 = this.assign(baseOption["yAxis"],{});
+      baseYAxis2.opposite = true;
+      baseYAxis2.title.text = yunit[1] ? yunit[1] : "";
+      baseYAxis2.labels.x = 8;
+      yAxis.push(baseYAxis2);
+    }else{
+      yAxis = this.assign(baseOption["yAxis"],{});
+      yAxis.title.text = yunit[0] ? yunit[0] : "";
+    }
+    // }
+    // title: {
+    //   text: '',
+    //     align:'high',
+    //     y:-10,
+    //     rotation:0,
+    //     offset:-5,
+    //     style:{
+    //     color: vars.labelFontColor,
+    //       fontSize: 10,
+    //   }
+    // },
     return {
       series : series,
-      yAxis:{
-        title: {
-          text: yunit,
-        }
-      },
+      // yAxis:[
+      //   {
+      //     tickAmount:6,
+      //     title: {
+      //       text: yunit,
+      //       align: 'high',
+      //       y: -10,
+      //       rotation: 0,
+      //       offset: -5,
+      //       style: {
+      //         color: vars.unitColor,
+      //         fontSize: 10,
+      //       }
+      //     },
+      //   },
+      //   {
+      //     tickAmount:6,
+      //     title: {
+      //       text: yunit,
+      //       align: 'high',
+      //       y: -10,
+      //       rotation: 0,
+      //       offset: -10 ,
+      //       style: {
+      //         color: vars.unitColor,
+      //         fontSize: 10,
+      //
+      //       },
+      //
+      //     },
+      //     opposite: true
+      //   }
+      //   ],
+      yAxis:yAxis,
       xAxis:{
         categories : xdata,
-        tickInterval: isXdataJustify6 ? xdata.length-1:null,
+        tickInterval: isXdataJustify ? xdata.length-1:null,
       },
 
     };

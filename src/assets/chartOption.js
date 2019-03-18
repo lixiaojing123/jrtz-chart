@@ -111,11 +111,17 @@ export const instrumentPanelBaseOption = function(){
           enabled: false
         },
         dial: {
-          backgroundColor: '#e63838',
+          backgroundColor: '#F63636',
           radius: '100%',
-          rearLength: '0%',
-          baseWidth: 10,
-          baseLength: '1%'
+          baseWidth: 9,
+          baseLength: '10%', // of radius
+          rearLength: '5',
+        },
+        pivot: {
+          radius:4,
+          borderWidth: 1,
+          borderColor: '#F63636',
+          backgroundColor: '#fff'
         }
       }
     },

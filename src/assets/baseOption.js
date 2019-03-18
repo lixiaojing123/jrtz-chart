@@ -16,9 +16,10 @@ export const baseOption = {
   colors: vars.colors,
   plotOptions: {
     column:{
-      pointWidth:20,
+      borderWidth:0,
       states:{
         hover:{
+          enabled:false,
           marker:{
             enabled:false,
             radius:0,
@@ -49,6 +50,7 @@ export const baseOption = {
     }
   },
   xAxis:{
+
     lineColor: vars.splitLineColor,
     gridLineWidth: 0,
     tickWidth:0,//去掉刻度
@@ -60,12 +62,13 @@ export const baseOption = {
     },
     crosshair:{
       color:vars.barShadowColor,
-      width:0
+      // width:0
     },
 
   },
   title:"",
   yAxis:{
+    gridLineColor: vars.splitLineColor,
     lineWidth: 1,
     lineColor: vars.yLineColor,
     tickWidth:0,//去掉刻度
@@ -97,7 +100,7 @@ export const baseOption = {
     verticalAlign: 'top',
     symbolWidth: 0,
     symbolHeight: 0,
-    y: 12,
+    y: 5,
     useHTML: true,
     padding: 0,
     itemStyle: {

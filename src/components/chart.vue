@@ -14,14 +14,15 @@
            :isDataDot = "isDataDot"
            :text = "text"
            :theme = "theme"
+           :doubleYIndexArr = "doubleYIndexArr"
            class="chart"
       ></div>
 </template>
 <script>
-  import HighCharts from 'highcharts/highstock'
+  import HighCharts from 'highcharts/highstock';
   import highchartsMore from 'highcharts/highcharts-more';
-  import * as chartOption from '../assets/chartOption'
-  import Utils from '../assets/index.js'
+  import * as chartOption from '../assets/chartOption';
+  import Utils from '../assets/index.js';
 
   highchartsMore(HighCharts);
   export default {
@@ -55,8 +56,7 @@
         default:true,
       },
       yunit:{
-        type:String,
-        default: "",
+        default:Array,
       },
       text:{
         type:String,
@@ -68,6 +68,9 @@
       theme:{
         type: String,
         default:"white",
+      },
+      doubleYIndexArr:{
+        default: null,
       },
       extendOption:{
         type: Object,
@@ -123,7 +126,7 @@
         let option = {};
         switch (t) {
           case "basic" :
-              var seriesOption = Utils.getBasicSeriesOption(this.ydata,this.ytype,this.seriesName,this.xdata,this.yunit,this.isDataDot,this.isXdataJustify);
+              var seriesOption = Utils.getBasicSeriesOption(this.ydata,this.ytype,this.seriesName,this.xdata,this.yunit,this.isDataDot,this.isXdataJustify,this.doubleYIndexArr);
               option = Utils.assign(chartOption.basicBaseOption(),seriesOption);
               break;
           case "circle" :
@@ -157,7 +160,7 @@
           option = Utils.assign(option,this.extendOption);
         }
         this.chart = HighCharts.chart(this.id,option);
-        console.log(option);
+        console.log(JSON.stringify(option));
       },
     },
 

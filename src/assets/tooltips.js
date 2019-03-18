@@ -5,9 +5,14 @@ import vars from "../assets/theme.js"
 
 export const tooltipHTML = function (target) {
   let point = target.points || target.point;
-  let unit = point[0].point.series.chart.options.yAxis[0].title.text;
   let row = '';
   for (let i = 0; i < point.length; i++) {
+    let unit = "";
+    if(point[i].series.yAxis.opposite == true){
+      unit = point[i].point.series.chart.options.yAxis[1].title.text;
+    }else{
+      unit = point[i].point.series.chart.options.yAxis[0].title.text;
+    }
     row += `
         <p>
           <span style="background-color:${point[i].color};width:5px;height:5px;display:inline-block;margin-right:2px;border-radius: 100%;"></span>

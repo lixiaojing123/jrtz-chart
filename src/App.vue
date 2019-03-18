@@ -30,14 +30,14 @@ export default {
       document.body.appendChild(script);
     },
   },
-  beforeCreate(){
-    var script=document.createElement('script');
-    script.type="text/javascript";
-    script.src="./static/theme.js";
-//    document.body.appendChild(script);
-    document.getElementsByTagName('header')[0].appendChild(script);
-//    this.loadJs("./assets/theme.js");
-  },
+//  beforeCreate(){
+//    var script=document.createElement('script');
+//    script.type="text/javascript";
+//    script.src="./static/theme.js";
+////    document.body.appendChild(script);
+//    document.getElementsByTagName('header')[0].appendChild(script);
+////    this.loadJs("./assets/theme.js");
+//  },
 }
 </script>
 
