@@ -28,6 +28,14 @@ export const baseOption = {
         }
       }
     },
+    line:{
+      marker:{
+        radius:3,
+        lineWidth:5,
+        lineColor: null,
+        symbol:"circle",
+      },
+    },
     series:{
       fillOpacity:0.5,  //填充透明度
       marker:{

@@ -50,7 +50,7 @@ export default {
       ydata: [[1,2,3,4],[1,2,3,4],[5,6,7,8]],
       ydata2: [[1,10,8,3]],
 
-      ytype: ["line","column","column"],
+      ytype: ["line","line","line"],
       ytype1: ["line"],
       text:"中风险",
 
@@ -67,6 +67,15 @@ export default {
             borderWidth: 0,
             pointWidth: 20    //修改柱状图的宽度
           }
+        },
+        yAxis: {
+          labels: {
+            formatter: function () {
+              console.log("999")
+              console.log(this)
+              return this.value + '%';
+            }
+          },
         }
       },
       //spider
