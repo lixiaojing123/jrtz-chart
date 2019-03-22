@@ -79,11 +79,10 @@ export const pieBaseOption = function(){
 
 //仪表盘
 export const instrumentPanelBaseOption = function(){
-  var meter1 = require('./images/meter1.png');
   let option1 = {
     chart: {
       marginTop: 0,
-      plotBackgroundImage: meter1,
+      plotBackgroundImage: '/static/meter.png',
     },
     pane: {
       startAngle: -115,
