@@ -71,8 +71,6 @@ export default {
         yAxis: {
           labels: {
             formatter: function () {
-              console.log("999")
-              console.log(this)
               return this.value + '%';
             }
           },

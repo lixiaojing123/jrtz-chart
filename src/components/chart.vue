@@ -157,9 +157,7 @@
           option = Utils.assign(option,plotOptions);
         }
         if(this.extendOption){
-
           option = Utils.assign(option,this.extendOption);
-          console.log(option);
         }
         this.chart = HighCharts.chart(this.id,option);
         console.log(JSON.stringify(option));
@@ -179,7 +177,7 @@
   }
 
   .highcharts-tracker path{
-    stroke-opacity:0.3;
+    stroke-opacity:0.28;
   }
 
   /*}*/

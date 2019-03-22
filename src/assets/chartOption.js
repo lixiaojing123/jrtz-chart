@@ -82,7 +82,7 @@ export const instrumentPanelBaseOption = function(){
   let option1 = {
     chart: {
       marginTop: 0,
-      plotBackgroundImage: "/static/meter.png",
+      plotBackgroundImage: "/static/meter1.png",
     },
     pane: {
       startAngle: -115,
