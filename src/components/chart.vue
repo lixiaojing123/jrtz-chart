@@ -168,12 +168,9 @@
 </script>
 
 
-<style>
+<style type="text/css">
   .highcharts-legend-item .highcharts-point{
     display:none !important;
-  }
-  .chart{
-
   }
 
   .highcharts-tracker path{
