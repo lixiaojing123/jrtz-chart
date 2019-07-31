@@ -35,6 +35,9 @@ export const baseOption = {
         lineColor: null,
         symbol:"circle",
       },
+      states:{
+
+      }
     },
     series:{
       fillOpacity:0.5,  //填充透明度

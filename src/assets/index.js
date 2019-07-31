@@ -18,7 +18,7 @@ let Utils = {
 
     var series = [];
     var yAxis = [];
-    for(let i in dataArr){
+    Object.keys(dataArr).forEach(i=>{
       if(! dataArr instanceof Array) {
         console.log("dataArray 格式不正确" );
         return;
@@ -42,7 +42,6 @@ let Utils = {
         }
       }
 
-
       if(item.type == "column"){
         item.zIndex = '-1';
       }
@@ -53,12 +52,13 @@ let Utils = {
           }
         }
       }
-
-
-
       series.push(item);
+    })
+    // for(let i in dataArr){
 
-    }
+
+
+    // }
 
 
     if(doubleYIndexArr && doubleYIndexArr.length > 0 ){
